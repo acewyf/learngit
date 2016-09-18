@@ -154,6 +154,7 @@ Move_Right()
 void Change_Shape()
 {
 	mode = (mode + 1)%4;
+}
 
 int main()
 {
