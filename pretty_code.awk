@@ -1,20 +1,14 @@
 
-<<<<<<< HEAD
 
 BEGIN{
 #定义缩进变量
 intend=""
 #定义行首
-=======
-BEGIN{
-intend=""
->>>>>>> 190490f3982ce3ff4ab3f1d8c01d462761a9748f
 top_of_line=""
 }
 
 function delete_space_bak()
 {
-<<<<<<< HEAD
 	#行首第一个字符赋给top_of_line
 	top_of_line=substr($0,1,1)
 	#如果第一个字符是空格或者tab，就将其删除，循环操作直至第一个字符不是空格或tab
@@ -63,25 +57,6 @@ function delete_space()
 	{
 		#匹配右大括号，不匹配左大括号，缩进变量减少一个tab，打印对应tab加内容
 		#匹配左右大括号，匹配字符串else，缩进变量减少一个tab，打印对应tab加内容	
-=======
-	top_of_line=substr($0,1,1)
-	while(top_of_line==" " || top_of_line=="\t")
-	{
-		sub("^[\t]+","")
-		sub("^ +","")
-		top_of_line=substr($0,1,1)
-	}
-}	
-
-{
-	delete_space()
-	if($0~/^\*/ || $0~/^\/\*/)
-	{
-		print
-	}
-	else if($0~/{/ || $0~/}/)
-	{
->>>>>>> 190490f3982ce3ff4ab3f1d8c01d462761a9748f
 		if($0~/}/)
 		{
 			if($0!~/{/ || $0~/else/)
@@ -90,7 +65,6 @@ function delete_space()
 				print intend$0
 			}
 		}
-<<<<<<< HEAD
 		
 		#匹配左大括号，且本行没有右大括号，先打印，缩进变量增加一个tab
 		#同时匹配左右大括号，且匹配字符串else，那么缩进变量增加一个tab（打印在上面匹配右大括号已做过）
@@ -98,20 +72,11 @@ function delete_space()
 	 	if($0~/{/)
 		{
 			if($0!~/}/)
-=======
-		if($0~/{/)
-		{
-			if($0!~/}/) 
->>>>>>> 190490f3982ce3ff4ab3f1d8c01d462761a9748f
 			{
 				print intend$0
 				intend=intend"\t"
 			}
-<<<<<<< HEAD
 			else if($0~/}/ && $0~/else/)
-=======
-			else if($0~/else/)	
->>>>>>> 190490f3982ce3ff4ab3f1d8c01d462761a9748f
 			{
 				intend=intend"\t"
 			}
@@ -120,7 +85,6 @@ function delete_space()
 				print intend$0
 			}
 		}
-<<<<<<< HEAD
 
 	}
 	
@@ -134,12 +98,3 @@ function delete_space()
 
 
 
-=======
-	}
-	
-	else
-	{
-		print intend$0 
-	}
-}
->>>>>>> 190490f3982ce3ff4ab3f1d8c01d462761a9748f
