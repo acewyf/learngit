@@ -12,7 +12,7 @@ intend=""
 top_of_line=""
 }
 
-function delete_space()
+function delete_space_bak()
 {
 <<<<<<< HEAD
 	#行首第一个字符赋给top_of_line
@@ -27,6 +27,11 @@ function delete_space()
 		#同上，删除空格
 		sub(/^ +/,"")
 	}
+}
+
+function delete_space()
+{
+	sub(/^([ \t]+)+/,"")
 }
 
 {
